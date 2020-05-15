@@ -1,0 +1,33 @@
+name:                babylon
+
+description:         Please see the README on GitHub at <https://github.com/githubuser/babylon#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- record-hasfield
+- jsaddle-dom
+- jsaddle-warp
+- jsaddle
+- lens
+- aeson
+- bytestring
+- text
+- data-default
+- convertible
+- vector-space
+
+default-extensions:
+- OverloadedStrings
+- LambdaCase
+- ScopedTypeVariables
+- DeriveGeneric
+
+ghc-options:
+- -F -pgmF=record-dot-preprocessor
+- -Wall
+- -Wno-name-shadowing
+- -Wno-unused-do-bind
+- -Werror=incomplete-patterns
+
+library:
+  source-dirs: src

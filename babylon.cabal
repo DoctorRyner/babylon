@@ -1,0 +1,52 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: c4f8af258b4e9ecee648fca02dfb42a09eed00c16da4bf4f6dff9912ed276451
+
+name:           babylon
+version:        0.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/babylon#readme>
+build-type:     Simple
+
+library
+  exposed-modules:
+      Babylon
+      Babylon.Camera
+      Babylon.Data.Color
+      Babylon.Data.V
+      Babylon.Engine
+      Babylon.Light
+      Babylon.Material
+      Babylon.Mesh
+      Babylon.Mesh.Types
+      Babylon.MeshBuilder
+      Babylon.Scene
+      Babylon.Space
+      Babylon.Texture
+      JS
+      JS.Console
+      JS.Dom
+      Test
+  other-modules:
+      Paths_babylon
+  hs-source-dirs:
+      src
+  default-extensions: OverloadedStrings LambdaCase ScopedTypeVariables DeriveGeneric
+  ghc-options: -F -pgmF=record-dot-preprocessor -Wall -Wno-name-shadowing -Wno-unused-do-bind -Werror=incomplete-patterns
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , convertible
+    , data-default
+    , jsaddle
+    , jsaddle-dom
+    , jsaddle-warp
+    , lens
+    , record-hasfield
+    , text
+    , vector-space
+  default-language: Haskell2010
