@@ -14,11 +14,14 @@ import           JS.Dom
 createScene :: Element -> Engine -> JSM Scene
 createScene canvas engine = do
     scene  <- newScene engine
-    camera <- newArcRotateCamera "mainCamera" (3 * pi / 2) (pi / 2.3) 10 zeroV scene
-
-    newHemisphericLight "l1" (V3 10 15 (-5)) scene
+    camera <- newArcRotateCamera "mainCamera" (pi / 2) (pi / 2) 2 zeroV scene
 
     attachControl canvas camera
+
+    newHemisphericLight "l1" (V3 1 1 0) scene
+    newPointLight "l2" (V3 0 1 (-1)) scene
+
+    createSphere "sphere" def scene
 
     pure scene
 

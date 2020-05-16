@@ -9,3 +9,7 @@ newtype Light = Light { raw :: JSVal }
 newHemisphericLight :: String -> V3 -> Scene -> JSM Light
 newHemisphericLight id_ target scene =
     Light <$> newb "HemisphericLight" (id_, toJSVal target, scene.raw)
+
+newPointLight :: String -> V3 -> Scene -> JSM Light
+newPointLight id_ target scene =
+    Light <$> newb "PointLight" (id_, toJSVal target, scene.raw)
