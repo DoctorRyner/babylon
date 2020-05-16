@@ -387,3 +387,29 @@ createGroundFromHeightMap id_ url opts scene = do
             (evalb "MeshBuilder.CreateGroundFromHeightMap")
             global
             (id_, url, o, scene.raw)
+
+data TiledGroundOpts = TiledGroundOpts
+    { xmin
+    , zmin
+    , xmax
+    , zmax         :: Float
+    , subdivisions 
+    , precision    :: WH
+    , updatable    :: Bool
+    } deriving Generic
+
+data WH = WH { w, h :: Float } deriving Generic
+
+instance ToJSON TiledGroundOpts
+instance ToJSON WH
+
+instance Default TiledGroundOpts where
+    def = TiledGroundOpts
+        { xmin         = -1
+        , zmin         = -1
+        , xmax         = 1
+        , zmax         = 1
+        , subdivisions = WH 6 6
+        , precision    = WH 2 2
+        , updatable    = False
+        }

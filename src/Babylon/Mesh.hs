@@ -46,6 +46,9 @@ addRotation alpha beta gamma mesh =
 rotate :: Axis -> Float -> Space -> Mesh -> JSM ()
 rotate axis angle space mesh = unit $ mesh.raw # "rotate" $ (axis, angle, space)
 
+getScale :: Mesh -> JSM V3
+getScale mesh = ffiJSON $ mesh.raw ! "scaling"
+
 setScale :: V3 -> Mesh -> JSM ()
 setScale v3 mesh = mesh.raw <# "scaling" $ toJSVal v3
 
