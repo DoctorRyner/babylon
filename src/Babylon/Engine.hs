@@ -8,13 +8,28 @@ import           JSDOM.Generated.NonElementParentNode (getElementById)
 import           JSDOM.Types                          (toNonElementParentNode)
 
 import           JS
-import JSDOM.Generated.EventTarget (addEventListener)
-import JSDOM.Generated.EventListener (EventListener(EventListener))
+import           JSDOM.Generated.EventListener        (EventListener (EventListener))
+import           JSDOM.Generated.EventTarget          (addEventListener)
 
 newtype Engine = Engine { raw :: JSVal }
 
-load :: JSM JSVal
-load = liftIO (readFile "static/babylon.js") >>= eval
+loadFile :: FilePath -> JSM ()
+loadFile path = do
+    eval =<< liftIO (readFile path)
+    pure ()
+
+load :: JSM ()
+load = mapM_ loadFile
+    [ "static/babylon.js"
+    -- , "static/babylon.inspector.js"
+    -- , "static/babylon.loaders.js"
+    -- , "static/babylon.materials.js"
+    -- , "static/babylon.postProcess.js"
+    -- , "static/babylon.materials.js"
+    -- , "static/babylon.gui.js"
+    -- , "static/babylon.proceduralTextures.js"
+    -- , "static/babylon.serializers.js"
+    ]
 
 newEngine :: Element -> JSM Engine
 newEngine canvas = Engine <$> newb "Engine" [canvas]

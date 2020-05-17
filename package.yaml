@@ -15,12 +15,14 @@ dependencies:
 - data-default
 - convertible
 - vector-space
+- extra
 
 default-extensions:
 - OverloadedStrings
 - LambdaCase
 - ScopedTypeVariables
 - DeriveGeneric
+- NamedFieldPuns
 
 ghc-options:
 - -F -pgmF=record-dot-preprocessor

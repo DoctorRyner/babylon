@@ -393,7 +393,7 @@ data TiledGroundOpts = TiledGroundOpts
     , zmin
     , xmax
     , zmax         :: Float
-    , subdivisions 
+    , subdivisions
     , precision    :: WH
     , updatable    :: Bool
     } deriving Generic
@@ -413,3 +413,46 @@ instance Default TiledGroundOpts where
         , precision    = WH 2 2
         , updatable    = False
         }
+
+data LinesOpts = LinesOpts
+    { points         :: [V3]
+    , updatable      :: Bool
+    , colors         :: Maybe [Color4]
+    , useVertexAlpha :: Bool
+    } deriving Generic
+
+instance ToJSON LinesOpts
+
+instance Default LinesOpts where
+    def = LinesOpts
+        { points         = []
+        , updatable      = False
+        , colors         = Nothing
+        , useVertexAlpha = True
+        }
+
+createLines :: String -> LinesOpts -> Scene -> JSM Mesh
+createLines = builder "Lines"
+
+-- DOESN'T WORK, apperently
+data DashedLinesOpts = DashedLinesOpts
+    { points         :: [V3]
+    , dashSize
+    , gapSize        :: Float
+    , dashNb         :: Int
+    , updatable      :: Bool
+    } deriving Generic
+
+instance ToJSON DashedLinesOpts
+
+instance Default DashedLinesOpts where
+    def = DashedLinesOpts
+        { points         = []
+        , dashSize       = 3
+        , gapSize        = 1
+        , dashNb         = 200
+        , updatable      = False
+        }
+
+createDashedLines :: String -> DashedLinesOpts -> Scene -> JSM Mesh
+createDashedLines = builder "DashedLines"

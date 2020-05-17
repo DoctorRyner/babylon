@@ -21,14 +21,13 @@ createScene canvas engine = do
     newHemisphericLight "l1" (V3 1 1 0) scene
     newPointLight "l2" (V3 0 1 (-1)) scene
 
-    createSphere "sphere" def scene
-
     pure scene
 
 run :: JSM ()
 run = runOn "renderCanvas" $ \canvas engine -> do
     scene <- createScene canvas engine
 
+    addInspector scene
     runRenderLoop (render scene) engine
 
 test :: IO ()

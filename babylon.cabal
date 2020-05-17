@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c4f8af258b4e9ecee648fca02dfb42a09eed00c16da4bf4f6dff9912ed276451
+-- hash: 7e538277ac48d8829027641ec8bfc4e10f2a20fd5d8983f68b42f41ecb39e836
 
 name:           babylon
 version:        0.0.0
@@ -34,7 +34,7 @@ library
       Paths_babylon
   hs-source-dirs:
       src
-  default-extensions: OverloadedStrings LambdaCase ScopedTypeVariables DeriveGeneric
+  default-extensions: OverloadedStrings LambdaCase ScopedTypeVariables DeriveGeneric NamedFieldPuns
   ghc-options: -F -pgmF=record-dot-preprocessor -Wall -Wno-name-shadowing -Wno-unused-do-bind -Werror=incomplete-patterns
   build-depends:
       aeson
@@ -42,6 +42,7 @@ library
     , bytestring
     , convertible
     , data-default
+    , extra
     , jsaddle
     , jsaddle-dom
     , jsaddle-warp
