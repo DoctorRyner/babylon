@@ -10,16 +10,19 @@ import           Babylon.Texture
 import           JS
 
 getPos :: Mesh -> JSM V3
-getPos mesh = ffiJSON $ mesh.raw ! "position"
+getPos = get "position"
 
 setPos :: V3 -> Mesh -> JSM ()
-setPos v3 mesh = mesh.raw <# "position" $ toJSVal v3
+setPos = set "position"
+
+getPosX :: Mesh -> JSM Float
+getPosX = get "position.x"
 
 setPosX :: Float -> Mesh -> JSM ()
-setPosX n mesh = mesh.raw ! "position" <# "x" $ n
+setPosX = set' ["position", "x"]
 
 setPosY :: Float -> Mesh -> JSM ()
-setPosY n mesh = mesh.raw ! "position" <# "y" $ n
+setPosY = set' ["position", "y"]
 
 setPosZ :: Float -> Mesh -> JSM ()
 setPosZ n mesh = mesh.raw ! "position" <# "z" $ n
@@ -47,7 +50,7 @@ rotate :: Axis -> Float -> Space -> Mesh -> JSM ()
 rotate axis angle space mesh = unit $ mesh.raw # "rotate" $ (axis, angle, space)
 
 getScale :: Mesh -> JSM V3
-getScale mesh = ffiJSON $ mesh.raw ! "scaling"
+getScale = get "scaling"
 
 setScale :: V3 -> Mesh -> JSM ()
 setScale v3 mesh = mesh.raw <# "scaling" $ toJSVal v3
@@ -69,3 +72,24 @@ setMaterial mat mesh = mesh.raw <# "material" $ toJSVal mat.raw
 
 setDiffuseTexture :: Texture -> StandardMaterial -> JSM ()
 setDiffuseTexture texture mat = mat.raw <# "diffuseTexture" $ toJSVal texture.raw
+
+getDiffuseTexture :: StandardMaterial -> JSM ()
+getDiffuseTexture mat = ffiJSON $ mat.raw ! "diffuseTexture"
+
+setSpecularTexture :: Texture -> StandardMaterial -> JSM ()
+setSpecularTexture texture mat = mat.raw <# "specularTexture" $ toJSVal texture.raw
+
+getSpecularTexture :: StandardMaterial -> JSM ()
+getSpecularTexture mat = ffiJSON $ mat.raw ! "specularTexture"
+
+setEmissiveTexture :: Texture -> StandardMaterial -> JSM ()
+setEmissiveTexture texture mat = mat.raw <# "emissiveTexture" $ toJSVal texture.raw
+
+getEmissiveTexture :: StandardMaterial -> JSM ()
+getEmissiveTexture mat = ffiJSON $ mat.raw ! "emissiveTexture"
+
+setAmbientTexture :: Texture -> StandardMaterial -> JSM ()
+setAmbientTexture texture mat = mat.raw <# "ambientTexture" $ toJSVal texture.raw
+
+getAmbientTexture :: StandardMaterial -> JSM ()
+getAmbientTexture mat = ffiJSON $ mat.raw ! "ambientTexture"

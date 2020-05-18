@@ -8,6 +8,12 @@ import           JS
 
 newtype Mesh = Mesh { raw :: JSVal }
 
+instance ToJSVal Mesh where
+    toJSVal v = pure v.raw
+
+instance MakeObject Mesh where
+    makeObject v = valToObject v.raw
+
 data TilePattern
     = FlipTile
     | CapAll

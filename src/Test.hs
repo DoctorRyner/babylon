@@ -21,6 +21,8 @@ createScene canvas engine = do
     newHemisphericLight "l1" (V3 1 1 0) scene
     newPointLight "l2" (V3 0 1 (-1)) scene
 
+    sphere <- createSphere "s1" def scene
+
     pure scene
 
 run :: JSM ()
@@ -36,5 +38,13 @@ test = debug 1234 $ do
 
     head_ [el "style" [] [text style]]
     body_ [el "canvas" ["id" =: "renderCanvas", "touch-action" =: "none"] []]
+
+    let x   = 3
+        y   = 4
+        res =
+        x
+        +
+        y
+        z   = res + 8
 
     run
