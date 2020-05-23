@@ -19,19 +19,19 @@ getPosX :: Mesh -> JSM Float
 getPosX = get "position.x"
 
 setPosX :: Float -> Mesh -> JSM ()
-setPosX = set' ["position", "x"]
+setPosX = set "position.x"
 
 setPosY :: Float -> Mesh -> JSM ()
-setPosY = set' ["position", "y"]
+setPosY = set "position.y"
 
 setPosZ :: Float -> Mesh -> JSM ()
-setPosZ n mesh = mesh.raw ! "position" <# "z" $ n
+setPosZ = set "position.z"
 
 getRotation :: Mesh -> JSM V3
-getRotation mesh = ffiJSON $ mesh.raw ! "rotation"
+getRotation = get "rotation"
 
 setRotation :: V3 -> Mesh -> JSM ()
-setRotation v mesh = mesh.raw <# "rotation" $ toJSVal v
+setRotation = set "rotation"
 
 setRotationX :: Float -> Mesh -> JSM ()
 setRotationX n mesh = mesh.raw ! "rotation" <# "x" $ n
