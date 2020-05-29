@@ -21,7 +21,13 @@ createScene canvas engine = do
     newHemisphericLight "l1" (V3 1 1 0) scene
     newPointLight "l2" (V3 0 1 (-1)) scene
 
-    sphere <- createSphere "s1" def scene
+    sphere <- createSphere "s1" def { diameterX = Just 1 } scene
+
+    material <- newStandardMaterial "testMaterial" scene
+
+    setMaterial material sphere
+
+    flip setWireframe material True
 
     pure scene
 

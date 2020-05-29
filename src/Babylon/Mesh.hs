@@ -34,13 +34,13 @@ setRotation :: V3 -> Mesh -> JSM ()
 setRotation = set "rotation"
 
 setRotationX :: Float -> Mesh -> JSM ()
-setRotationX n mesh = mesh.raw ! "rotation" <# "x" $ n
+setRotationX = set "rotation.x"
 
 setRotationY :: Float -> Mesh -> JSM ()
-setRotationY n mesh = mesh.raw ! "rotation" <# "y" $ n
+setRotationY = set "rotation.y"
 
 setRotationZ :: Float -> Mesh -> JSM ()
-setRotationZ n mesh = mesh.raw ! "rotation" <# "z" $ n
+setRotationZ = set "rotation.z"
 
 addRotation :: Float -> Float -> Float -> Mesh -> JSM ()
 addRotation alpha beta gamma mesh =

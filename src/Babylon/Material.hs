@@ -44,3 +44,9 @@ setAlpha = set "alpha"
 
 getAlpha :: StandardMaterial -> JSM ()
 getAlpha = get "alpha"
+
+setWireframe :: Bool -> StandardMaterial -> JSM ()
+setWireframe = set "wireframe"
+
+getWireframe :: StandardMaterial -> JSM Bool
+getWireframe = get "wireframe"
