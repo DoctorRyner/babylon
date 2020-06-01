@@ -9,12 +9,6 @@ import           Babylon.Space
 import           Babylon.Texture
 import           JS
 
-getPos :: Mesh -> JSM V3
-getPos = get "position"
-
-setPos :: V3 -> Mesh -> JSM ()
-setPos = set "position"
-
 getPosX :: Mesh -> JSM Float
 getPosX = get "position.x"
 

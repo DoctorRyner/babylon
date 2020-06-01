@@ -9,6 +9,9 @@ import           Language.Javascript.JSaddle
 import           Language.Javascript.JSaddle.Warp (debug)
 
 import           Babylon
+import           Babylon.Data.Node
+import           Babylon.Data.TransformNode
+import           Babylon.Data.AbstractMesh
 import           JS.Dom
 
 createScene :: Element -> Engine -> JSM Scene
@@ -23,11 +26,7 @@ createScene canvas engine = do
 
     sphere <- createSphere "s1" def { diameterX = Just 1 } scene
 
-    material <- newStandardMaterial "testMaterial" scene
-
-    setMaterial material sphere
-
-    flip setWireframe material True
+    logS =<< (getId . getNode . getTransNode . getAbsMesh) sphere
 
     pure scene
 

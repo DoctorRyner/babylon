@@ -1,25 +1,16 @@
 module Babylon
-    ( module Babylon.Camera
-    , module Babylon.Data.Color
-    , module Babylon.Data.V
-    , module Babylon.Engine
-    , module Babylon.Light
-    , module Babylon.Material
-    , module Babylon.Mesh
-    , module Babylon.MeshBuilder
-    , module Babylon.Scene
-    , module Babylon.Texture
-    , module JS
+    ( module Exported
     ) where
 
-import           Babylon.Camera
-import           Babylon.Data.Color
-import           Babylon.Data.V
-import           Babylon.Engine
-import           Babylon.Light
-import           Babylon.Material
-import           Babylon.Mesh
-import           Babylon.MeshBuilder
-import           Babylon.Scene
-import           Babylon.Texture
-import           JS
+import           Babylon.Camera      as Exported
+import           Babylon.Data.Color  as Exported
+import           Babylon.Data.Fields as Exported
+import           Babylon.Data.V      as Exported
+import           Babylon.Engine      as Exported
+import           Babylon.Light       as Exported
+import           Babylon.Material    as Exported
+import           Babylon.Mesh        as Exported
+import           Babylon.MeshBuilder as Exported
+import           Babylon.Scene       as Exported
+import           Babylon.Texture     as Exported
+import           JS                  as Exported

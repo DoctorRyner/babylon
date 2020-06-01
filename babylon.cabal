@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7e538277ac48d8829027641ec8bfc4e10f2a20fd5d8983f68b42f41ecb39e836
+-- hash: 5c12e11ab367348ecaa149873b3c8e4676cdc438fdc59690ee0c93d418c86de8
 
 name:           babylon
 version:        0.0.0
@@ -15,7 +15,11 @@ library
   exposed-modules:
       Babylon
       Babylon.Camera
+      Babylon.Data.AbstractMesh
       Babylon.Data.Color
+      Babylon.Data.Fields
+      Babylon.Data.Node
+      Babylon.Data.TransformNode
       Babylon.Data.V
       Babylon.Engine
       Babylon.Light

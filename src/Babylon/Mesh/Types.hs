@@ -1,12 +1,19 @@
 module Babylon.Mesh.Types where
 
 import           Prelude            hiding (Left, Right)
-
 import           Data.Aeson
-
 import           JS
+import           Babylon.Data.Fields
+import Babylon.Data.AbstractMesh
 
-newtype Mesh = Mesh { raw :: JSVal }
+data Mesh = Mesh { raw :: JSVal }
+
+instance HasAbstractMesh Mesh where
+    getAbsMesh a = AbstractMesh a.raw
+
+instance HasPosition Mesh where
+    getPos = get "position"
+    setPos = set "position"
 
 instance ToJSVal Mesh where
     toJSVal v = pure v.raw
